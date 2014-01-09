@@ -1,0 +1,55 @@
+//
+//  CustomNavViewCtrl.m
+//
+//  Created by Xubin Liu on 12-3-7.
+//  Copyright (c) 2012年 simalone. All rights reserved.
+//
+
+#import "CustomNavViewCtrl.h"
+#import "UINavigationBar_addition.h"
+
+#pragma mark - CustomNavViewCtrl
+
+@implementation CustomNavViewCtrl
+
+- (void)loadView {
+    [super loadView];
+
+    //the image's height can be more than 44 then can have a shadow for the bar
+    [self setNavigationBarImage:[UIImage imageNamed:NavImageName]];
+    self.delegate = self;
+}  
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    if (![self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+        if (self.navigationBar.backgroundImage == nil) {
+            [self.navigationBar setBackgroundImage:[UIImage imageNamed:NavImageName]];
+        }
+    }
+}
+
+-(BOOL)shouldAutorotate{
+    return NO;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return NO;
+}
+
+@end
+
+@implementation UINavigationController(CustomNavViewCtrl)
+
+-(void)setNavigationBarImage:(UIImage *)image{
+    if (![self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+        [self.navigationBar setBackgroundImage:image];
+        self.navigationBar.tintColor = [UIColor blackColor];
+    }
+    else{
+        [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+        [self.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
+}
+
+@end

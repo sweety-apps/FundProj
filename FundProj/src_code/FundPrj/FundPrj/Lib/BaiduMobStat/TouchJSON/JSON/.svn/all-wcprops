@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON
+END
+CJSONScanner.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/CJSONScanner.m
+END
+CJSONSerializer.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/CJSONSerializer.m
+END
+JSONRepresentation.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/JSONRepresentation.h
+END
+CJSONDeserializer.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/CJSONDeserializer.h
+END
+CJSONDataSerializer.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/CJSONDataSerializer.h
+END
+CSerializedJSONData.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/CSerializedJSONData.h
+END
+CJSONDeserializer.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/CJSONDeserializer.m
+END
+CJSONDataSerializer.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/CJSONDataSerializer.m
+END
+CJSONScanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/CJSONScanner.h
+END
+CJSONSerializer.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/CJSONSerializer.h
+END
+CSerializedJSONData.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/app/search/video/!svn/ver/18680/trunk/ipad/BaiduVideo-iPad/Lib/BaiduMobStat/TouchJSON/JSON/CSerializedJSONData.m
+END

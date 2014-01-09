@@ -1,0 +1,29 @@
+//
+//  SimTabBarItem.h
+//  Wenku
+//
+//  Created by Xubin Liu on 12-7-12.
+//  Copyright (c) 2012年 baidu.com. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface SimTabBarItem : UIControl{
+    UIImageView *_iconImage;
+    UILabel *_titleLb;
+    
+    UIColor *_bgColor;
+    UIColor *_highlightedColor;
+    
+    UIColor *_borderColor;
+    UIColor *_highlightedBorderColor;
+}
+
++ (SimTabBarItem *)item;
+- (void)setColor:(UIColor *)color highlightedColor:(UIColor *)highlightedColor;
+- (void)setBorderColor:(UIColor *)color highlightedBorderColor:(UIColor *)highlightedColor;
+
+@property (nonatomic, retain) UILabel *title;
+@property (nonatomic, retain) UIImageView *iconImage;
+
+@end

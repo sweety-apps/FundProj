@@ -1,0 +1,53 @@
+//
+//  SimBottomTabBarVC.m
+//  Wenku
+//
+//  Created by Xubin Liu on 12-7-11.
+//  Copyright (c) 2012年 baidu.com. All rights reserved.
+//
+
+#import "SimBottomTabBarVC.h"
+
+@interface SimBottomTabBarVC ()
+
+@end
+
+@implementation SimBottomTabBarVC
+
+@synthesize tabBarView = _segmentBar;
+
+- (void)setTabBarView:(SimSegmentBar *)tabbarView{
+	if (_segmentBar != tabbarView) {
+		[_segmentBar release];
+		_segmentBar = [tabbarView retain];
+		_segmentBar.delegate = self;
+	}
+	_segmentBar.origin = CGPointZero;
+	float offset = _segmentBar.height - self.tabBar.height;
+	self.tabBar.top -= 	offset;
+	self.tabBar.height += offset;
+	[self.tabBar addSubview:_segmentBar];
+    
+    _segmentBar.selectedIndex = 0;
+}
+
+- (void)dealloc{
+	[_segmentBar release], _segmentBar = nil;
+	[super dealloc];
+}
+
+- (void)setSelectedIndex:(NSUInteger)index
+{
+	[super setSelectedIndex:index];
+	[self.tabBar bringSubviewToFront:_segmentBar];
+	_segmentBar.selectedIndex = index;
+}
+
+#pragma mark - SimSegmentBarDelegate
+- (void)SimSegmentBar:(SimSegmentBar*)view didSelectIndex:(NSInteger)index preIndex:(NSInteger)preIndex{
+    self.selectedIndex = index;
+
+}
+
+
+@end

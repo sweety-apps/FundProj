@@ -1,0 +1,23 @@
+//
+//  CustomNavViewCtrl.h
+//  simalone
+//
+//  Created by Xubin Liu on 12-3-7.
+//  Copyright (c) 2012年 simalone. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+#define NavImageName    @"nav-bar.png"
+
+@interface CustomNavViewCtrl : UINavigationController<UINavigationControllerDelegate> {
+}
+
+
+@end
+
+
+
+@interface  UINavigationController(CustomNavViewCtrl)
+-(void)setNavigationBarImage:(UIImage *)image;
+@end

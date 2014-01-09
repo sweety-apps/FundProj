@@ -1,0 +1,20 @@
+//
+//  UINavigationBar_addition.h
+//  NavigationBarBg
+//
+//  Created by Xubin Liu on 12-7-3.
+//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface UINavigationBar (UINavigationBarCategory)   
+
+@property (nonatomic, retain) UIImage * backgroundImage;
+
+- (void)insertSubview:(UIView *)view atIndex:(NSInteger)index;
+- (CGFloat)actualBarHeight;
+
+//- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx;
+
+@end

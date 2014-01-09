@@ -1,0 +1,77 @@
+//
+//  UINavigationBar_addition.m
+//  NavigationBarBg
+//
+//  Created by Xubin Liu on 12-7-3.
+//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//
+
+#import "UINavigationBar_addition.h"
+
+@implementation UINavigationBar (CustomBg)
+
+
+- (UIImage *)backgroundImage{
+    UIImageView * _backView = (UIImageView *)[self viewWithTag:100100];
+    if (_backView) {
+        return _backView.image;
+    }
+    
+    return nil;
+}
+
+- (void)setBackgroundImage:(UIImage*)image
+{
+    UIImageView * _backView = ( UIImageView *)[self viewWithTag:100100];
+    if(image == nil || _backView){
+        [_backView removeFromSuperview];
+    }
+    else{
+        _backView = [[UIImageView alloc] initWithImage:image];
+        _backView.frame = CGRectMake(0.f, 0.f, self.frame.size.width, image.size.height);
+        _backView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _backView.backgroundColor = [UIColor clearColor];
+        _backView.tag = 100100;
+        [self addSubview:_backView];
+        [self sendSubviewToBack:_backView];
+        [_backView release];
+    }
+}
+
+- (void)insertSubview:(UIView *)view atIndex:(NSInteger)index
+{
+    [super insertSubview:view atIndex:index];
+    UIImageView * _backView = ( UIImageView *)[self viewWithTag:100100];
+    if (_backView) {
+        [self sendSubviewToBack:_backView];
+    }
+    
+}
+
+- (CGFloat)actualBarHeight{
+    UIImage *_image = self.backgroundImage;
+    if (_image) {
+        return _image.size.height;
+    }
+    
+    return self.frame.size.height;
+}
+
+/*
+ - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
+ {
+ if(self.tag != NotCustomNavigationBarTag){
+ self.tintColor = [UIColor blackColor];
+ 
+ UIImage *image = [UIImage imageNamed:@"navBarBg.png"];
+ CGContextClip(ctx);
+ CGContextTranslateCTM(ctx, 0, image.size.height);
+ CGContextScaleCTM(ctx, 1.0, -1.0);
+ CGContextDrawImage(ctx, CGRectMake(0, 0, self.frame.size.width, self.frame.size.height), image.CGImage);
+ 
+ }else{
+ [super drawLayer:layer inContext:ctx];
+ }
+ }
+ */
+@end

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/app/search/ns-mobile/!svn/ver/21132/trunk/iphone-wenku/iphone/Main/Vendor/SimUtil/SimTabBaViewrCtrl
+END
+SimSegmentBar.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/app/search/ns-mobile/!svn/ver/13868/trunk/iphone-wenku/iphone/Main/Vendor/SimUtil/SimTabBaViewrCtrl/SimSegmentBar.h
+END
+SimTopTabBarVC.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/app/search/ns-mobile/!svn/ver/11514/trunk/iphone-wenku/iphone/Main/Vendor/SimUtil/SimTabBaViewrCtrl/SimTopTabBarVC.h
+END
+SimBottomTabBarVC.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/app/search/ns-mobile/!svn/ver/11514/trunk/iphone-wenku/iphone/Main/Vendor/SimUtil/SimTabBaViewrCtrl/SimBottomTabBarVC.h
+END
+SimTabBarItem.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/app/search/ns-mobile/!svn/ver/19382/trunk/iphone-wenku/iphone/Main/Vendor/SimUtil/SimTabBaViewrCtrl/SimTabBarItem.h
+END
+SimSegmentBar.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/app/search/ns-mobile/!svn/ver/19680/trunk/iphone-wenku/iphone/Main/Vendor/SimUtil/SimTabBaViewrCtrl/SimSegmentBar.m
+END
+SimTopTabBarVC.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/app/search/ns-mobile/!svn/ver/21132/trunk/iphone-wenku/iphone/Main/Vendor/SimUtil/SimTabBaViewrCtrl/SimTopTabBarVC.m
+END
+SimBottomTabBarVC.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/app/search/ns-mobile/!svn/ver/11719/trunk/iphone-wenku/iphone/Main/Vendor/SimUtil/SimTabBaViewrCtrl/SimBottomTabBarVC.m
+END
+SimTabBarItem.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/app/search/ns-mobile/!svn/ver/13868/trunk/iphone-wenku/iphone/Main/Vendor/SimUtil/SimTabBaViewrCtrl/SimTabBarItem.m
+END

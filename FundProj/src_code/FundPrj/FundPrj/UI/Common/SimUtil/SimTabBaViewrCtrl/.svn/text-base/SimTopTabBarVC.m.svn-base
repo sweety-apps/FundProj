@@ -1,0 +1,173 @@
+//
+//  SimTopTabBarVC.m
+//  Wenku
+//
+//  Created by Xubin Liu on 12-7-11.
+//  Copyright (c) 2012年 baidu.com. All rights reserved.
+//
+
+#import "SimTopTabBarVC.h"
+
+@interface SimTopTabBarVC ()
+
+@end
+
+@implementation SimTopTabBarVC
+
+@synthesize tabBarView = _segmentBar;
+@synthesize viewControllers = _viewControllers;
+@synthesize isNavTitleView = _isNavTitleView;
+@synthesize selectedVC;
+
+- (void)dealloc{
+    SafeRelease(_viewControllers);
+	SafeRelease(_transitionView);
+    SafeRelease(_segmentBar);
+    [super dealloc];
+}
+
+
+//warning: selectedVC viewWillAppear, viewWillDisappear etc.
+//will invoked more than once, and difference for ios 4.3 and ios 5.0 ...
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationItem.titleView.hidden = NO;
+    [self.selectedVC viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.selectedVC viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationItem.titleView.hidden = YES;
+    [self.selectedVC viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.selectedVC viewDidDisappear:animated];
+}
+
+- (void)setTabBarView:(SimSegmentBar *)tabbarView{
+	if (_segmentBar != tabbarView) {
+		[_segmentBar release];
+		_segmentBar = [tabbarView retain];
+		_segmentBar.delegate = self;
+        _segmentBar.origin = CGPointZero;
+        if (self.isNavTitleView) {
+            self.navigationItem.titleView = _segmentBar;
+        }
+        else{
+            [self.view addSubview:_segmentBar];
+        }
+        
+        if (_transitionView) {
+            [_transitionView removeFromSuperview];
+            SafeRelease(_transitionView);
+        }
+        
+        CGRect _frame = CGRectZero;
+        if (self.isNavTitleView) {
+            _frame = self.view.bounds;
+        }
+        else {
+            _frame = CGRectMake(0, _segmentBar.height, self.view.width,self.view.height - _segmentBar.height);
+        }
+        _transitionView = [[UIView alloc] initWithFrame:_frame];
+        _transitionView.clipsToBounds = YES;
+        [_transitionView setNeedsLayout];
+        _transitionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self.view addSubview:_transitionView];
+        
+        _containerView = nil;
+        if (self.viewControllers.count > 0) {
+            self.selectedIndex = 0;
+        }
+	}
+}
+
+- (void)setViewControllers:(NSArray *)viewControllers{
+    [_viewControllers release];
+    _viewControllers = [viewControllers retain];
+    
+    if (self.tabBarView) {
+        self.selectedIndex = 0;
+    }
+}
+
+- (void)setIsNavTitleView:(BOOL)isNavTitleView{
+    _isNavTitleView = isNavTitleView;
+    if (_isNavTitleView) {
+        if (self.tabBarView) {
+            [self.tabBarView removeFromSuperview];
+            self.navigationItem.titleView = self.tabBarView;
+            _transitionView.top = 0;
+            _transitionView.height = self.view.height;
+        }
+    }
+}
+
+- (void)setSelectedIndex:(NSInteger )index
+{
+    self.tabBarView.selectedIndex = index;
+}
+
+- (NSInteger)selectedIndex{
+    if (self.tabBarView) {
+        return self.tabBarView.selectedIndex;
+    }
+    return NSNotFound;
+}
+
+- (void)loadView {
+    [super loadView];
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+}
+
+
+- (UIViewController*)selectedVC
+{
+    if (self.selectedIndex != NSNotFound) {
+        return [self.viewControllers objectAtIndex:self.selectedIndex];
+    }
+    
+    return nil;
+}
+
+#pragma mark - SimSegmentBarDelegate
+- (BOOL)SimSegmentBar:(SimSegmentBar*)view shouldSelectIndex:(NSInteger)index preIndex:(NSInteger)preIndex{
+    if (preIndex != NSNotFound) {
+        UIViewController *_curVC = [self.viewControllers objectAtIndex:preIndex];
+        [_curVC viewWillDisappear:NO];
+    }
+    
+    if (index != NSNotFound) {
+        UIViewController *_nextVC = [self.viewControllers objectAtIndex:index];
+        [_nextVC viewWillAppear:NO];
+    }
+    
+    return YES;
+}
+
+- (void)SimSegmentBar:(SimSegmentBar*)view didSelectIndex:(NSInteger)index preIndex:(NSInteger)preIndex{
+    if (preIndex != NSNotFound) {
+        UIViewController *_preVC = [self.viewControllers objectAtIndex:preIndex];
+        [_containerView removeFromSuperview];
+        [_preVC viewDidDisappear:NO];
+    }
+
+    
+    if (self.viewControllers.count > index) {
+        UIViewController *_nextVC = [self.viewControllers objectAtIndex:index];
+        _containerView =_nextVC.view;
+        _containerView.height = _transitionView.height;
+        _containerView.origin = CGPointZero;
+        [_transitionView addSubview:_containerView];
+        [_nextVC viewDidAppear:NO];
+    }
+}
+
+@end

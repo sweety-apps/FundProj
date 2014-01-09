@@ -1,0 +1,49 @@
+10
+
+dir
+20534
+https://svn.baidu.com/app/search/video/trunk/ipad/BaiduVideo-iPad/Lib
+https://svn.baidu.com/app/search/video
+
+
+
+2012-10-30T02:39:50.349645Z
+20503
+liujian07
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c0863b73-a60a-4280-98fb-551f5ccebccc
+
+Reachability
+dir
+
+RegexKitLite
+dir
+
+ASIHttpRequest
+dir
+
+EGOTableViewPullRefresh
+dir
+
+SBJson
+dir
+
+UIGlobalDevice
+dir
+
+BaiduMobStat
+dir
+
